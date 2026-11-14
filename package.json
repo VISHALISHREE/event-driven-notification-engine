@@ -1,0 +1,41 @@
+{
+  "name": "event-driven-notification-engine",
+  "version": "1.0.0",
+  "description": "A reliable event-driven notification engine built with TypeScript, Kafka, RabbitMQ, PostgreSQL and Redis.",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "worker:outbox": "tsx src/workers/outbox-relay.ts",
+    "worker:consumer": "tsx src/workers/event-consumer.ts",
+    "worker:dispatcher": "tsx src/workers/notification-dispatcher.ts",
+    "worker:delivery": "tsx src/workers/delivery-worker.ts",
+    "worker:dlq:inspect": "tsx src/workers/dlq-replay.ts inspect",
+    "worker:dlq:replay": "tsx src/workers/dlq-replay.ts replay"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "amqplib": "^2.3.1",
+    "dotenv": "^18.0.9",
+    "fastify": "^5.12.8",
+    "ioredis": "^6.0.0",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.8",
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
+    "prisma": "^7.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

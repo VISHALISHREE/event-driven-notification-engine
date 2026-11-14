@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+
+/src/generated/prisma
+# Local AI development tools
+.agents/
+.claude/
+.windsurf/
+# Local AI skill tooling
+skills-lock.json
+*.backup.*
